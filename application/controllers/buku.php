@@ -67,6 +67,8 @@ class Buku extends CI_Controller {
 			$config['max_size']  = '2000';
 			$config['max_width']  = '1024';
 			$config['max_height']  = '768';
+			$config['overwrite'] = true;
+			$config['remove_spaces'] = true;
 			
 			$this->upload->initialize($config);
 			if (!$this->upload->do_upload('cover')){
@@ -113,6 +115,8 @@ class Buku extends CI_Controller {
 			$config['max_size']  = '100';
 			$config['max_width']  = '1024';
 			$config['max_height']  = '768';
+			$config['overwrite'] = true;
+			$config['remove_spaces'] = true;
 			
 			$this->upload->initialize($config);
 			if ( ! $this->upload->do_upload('cover')){
