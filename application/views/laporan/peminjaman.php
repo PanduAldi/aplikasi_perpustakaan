@@ -17,7 +17,10 @@
 				$.ajax({
 					url : "<?php echo site_url('lap_peminjaman/get_report') ?>",
 					type : "POST",
-					data : "tgl1="+tgl1+"&tgl2="+tgl2,
+					data : {
+								tgl1 : tgl1,
+								tgl2 : tgl2
+							},
 					beforeSend : function(){
 						$("#tampil_data").html('<br><div class="alert alert-success"><i class="fa fa-spinner fa-spin"></i> Sedang memproses data. Tunggu sebentar...</div>');
 					},
