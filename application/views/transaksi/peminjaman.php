@@ -87,10 +87,13 @@
 					$.ajax({
 						url : "<?php echo site_url('peminjaman/simpan') ?>",
 						type : "POST",
-						data : "kd_peminjaman="+kd_pinjam+
-							   "&tgl_pinjam="+tgl_pinjam+
-							   "&tgl_kembali="+tgl_kembali+
-							   "&id_anggota="+id_anggota,	
+						data : {
+									//key : value
+									kd_peminjaman : kd_pinjam,
+									tgl_pinjam : tgl_pinjam,
+									tgl_kembali : tgl_kembali,
+									id_anggota : id_anggota
+								},	
 						beforeSend : function(){
 							$("#loading_simpan").html('<div class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Sedang Mempross data ...</div>');
 						},
