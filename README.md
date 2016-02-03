@@ -8,4 +8,4 @@ Aplikasi Perpustakaan yang saya buat menggunakan bahasa pemrograman PHP dengan F
     3. Transaksi Peminjaman, Pengembalian (with jquery Ajax).
     4. Laporan Peminjaman, Pengembalian.
     
-Silahkan dikembangkan lagi .. :D 
+Mungkin nanti kalo ada waktu senggang saya update lagi fitur2nya seperti cetak laporan, laporan anggota, laporan buku, backup data, untuk sementara pengembangan sampai point 4 dulu ..  :D 
