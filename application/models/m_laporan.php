@@ -22,6 +22,13 @@ class M_laporan extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_anggota($tgl1, $tgl2)
+	{
+		$this->db->where('tgl_daftar >=', $tgl1);
+		$this->db->where('tgl_daftar <=', $tgl2);
+		return $this->db->get('t_anggota');
+	}
+
 	// tampil detail anggota
 	public function detail_anggota($id)
 	{
