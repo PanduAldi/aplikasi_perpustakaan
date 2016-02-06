@@ -20,11 +20,8 @@ class Lap_pengembalian extends CI_Controller {
 
 	public function get_report()
 	{
-		$ex1 = explode('/', $this->input->post('tgl1'));
-		$ex2  = explode("/", $this->input->post('tgl2'));
-
-		$tgl1 = $ex1[2]."-".$ex1[0]."-".$ex1[1];
-		$tgl2 = $ex2[2]."-".$ex2[0]."-".$ex2[1];
+		$tgl1 = $this->input->post('tgl1');
+		$tgl2 = $this->input->post('tgl2');
 
 		$cek = $this->m_laporan->get_pengembalian($tgl1, $tgl2);
 

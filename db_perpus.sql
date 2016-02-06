@@ -2,10 +2,10 @@
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Inang: localhost
--- Waktu pembuatan: 31 Jan 2016 pada 05.25
--- Versi Server: 5.5.27
--- Versi PHP: 5.4.7
+-- Host: localhost
+-- Generation Time: Feb 07, 2016 at 02:55 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `db_perpus`
+-- Database: `db_perpus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `temp`
+-- Table structure for table `temp`
 --
 
 CREATE TABLE IF NOT EXISTS `temp` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `temp` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_anggota`
+-- Table structure for table `t_anggota`
 --
 
 CREATE TABLE IF NOT EXISTS `t_anggota` (
@@ -44,22 +44,23 @@ CREATE TABLE IF NOT EXISTS `t_anggota` (
   `nama` varchar(60) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `foto` varchar(100) NOT NULL,
+  `tgl_daftar` date NOT NULL,
   PRIMARY KEY (`id_anggota`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_anggota`
+-- Dumping data for table `t_anggota`
 --
 
-INSERT INTO `t_anggota` (`id_anggota`, `nim`, `nama`, `alamat`, `foto`) VALUES
-('20151201001', '12383023', 'pandu aldi pratama', 'jl. raya pulosari rt. 01 / rw. 01 Kec. Brebes', 'Pandhu.jpg'),
-('20151201002', '123830', 'waud', 'tegal', '533927_437870252971584_1088888724_a.jpg'),
-('20151202003', '12383022', 'sapa aja', 'dimana aja', '');
+INSERT INTO `t_anggota` (`id_anggota`, `nim`, `nama`, `alamat`, `foto`, `tgl_daftar`) VALUES
+('20151201001', '12383023', 'pandu aldi pratama', 'jl. raya pulosari rt. 01 / rw. 01 Kec. Brebes', 'Pandhu.jpg', '2016-02-04'),
+('20151201002', '123830', 'waud', 'tegal', '533927_437870252971584_1088888724_a.jpg', '2016-02-04'),
+('20151202003', '12383022', 'sapa aja', 'dimana aja', '', '2016-02-04');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_buku`
+-- Table structure for table `t_buku`
 --
 
 CREATE TABLE IF NOT EXISTS `t_buku` (
@@ -70,21 +71,23 @@ CREATE TABLE IF NOT EXISTS `t_buku` (
   `deskripsi` text NOT NULL,
   `status` enum('y','n') NOT NULL,
   `cover` varchar(100) NOT NULL,
+  `tgl_masuk` date NOT NULL,
   PRIMARY KEY (`kd_buku`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_buku`
+-- Dumping data for table `t_buku`
 --
 
-INSERT INTO `t_buku` (`kd_buku`, `judul`, `penerbit`, `pengarang`, `deskripsi`, `status`, `cover`) VALUES
-('BUK01', 'Belajar PHP', 'aneka', 'pandu', '<p>buku ini adalah buku</p>', 'y', ''),
-('BUK02', 'Point Of Sales menggunakan PHP (OOP)', 'perpustakaan', 'andi', '<p>ini adalah buku point of sales</p>', 'y', '');
+INSERT INTO `t_buku` (`kd_buku`, `judul`, `penerbit`, `pengarang`, `deskripsi`, `status`, `cover`, `tgl_masuk`) VALUES
+('BUK01', 'Belajar PHP', 'aneka', 'pandu', '<p>buku ini adalah buku</p>', 'y', '', '2016-02-07'),
+('BUK02', 'Point Of Sales menggunakan PHP (OOP)', 'perpustakaan', 'andi', '<p>ini adalah buku point of sales</p>', 'y', '', '2016-02-07'),
+('BUK03', 'asas', 'asas', 'asas', '<p>asasas</p>', 'y', '', '2016-02-07');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_peminjaman`
+-- Table structure for table `t_peminjaman`
 --
 
 CREATE TABLE IF NOT EXISTS `t_peminjaman` (
@@ -97,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `t_peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_peminjaman`
+-- Dumping data for table `t_peminjaman`
 --
 
 INSERT INTO `t_peminjaman` (`kd_peminjaman`, `id_anggota`, `kd_buku`, `tgl_pinjam`, `tgl_kembali`, `status`) VALUES
@@ -108,7 +111,7 @@ INSERT INTO `t_peminjaman` (`kd_peminjaman`, `id_anggota`, `kd_buku`, `tgl_pinja
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_pengembalian`
+-- Table structure for table `t_pengembalian`
 --
 
 CREATE TABLE IF NOT EXISTS `t_pengembalian` (
@@ -120,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `t_pengembalian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `t_pengembalian`
+-- Dumping data for table `t_pengembalian`
 --
 
 INSERT INTO `t_pengembalian` (`kd_peminjaman`, `kd_buku`, `tgl_kembali`, `denda`, `petugas`) VALUES
@@ -130,7 +133,7 @@ INSERT INTO `t_pengembalian` (`kd_peminjaman`, `kd_buku`, `tgl_kembali`, `denda`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_user`
+-- Table structure for table `t_user`
 --
 
 CREATE TABLE IF NOT EXISTS `t_user` (
@@ -143,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `t_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `t_user`
+-- Dumping data for table `t_user`
 --
 
 INSERT INTO `t_user` (`id_user`, `nama`, `username`, `password`, `level`) VALUES

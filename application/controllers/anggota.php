@@ -79,6 +79,7 @@ class Anggota extends CI_Controller {
 								 'nim' => $this->input->post('nim'),
 								 'nama' => $this->input->post('nama'),
 								 'alamat' => $this->input->post('alamat'),
+								 'tgl_daftar' => date("Y-m-d"),
 								 'foto' => $foto
 							   );	
 

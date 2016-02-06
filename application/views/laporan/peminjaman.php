@@ -3,9 +3,13 @@
 	<script>
 		$(function(){
 
-			//datepicker
-			$("#tgl1").datepicker();
-			$("#tgl2").datepicker();
+			//tgl
+			$("#tgl1").datepicker({
+				format : "yyyy-mm-dd"
+			});
+			$('#tgl2').datepicker({
+				format : "yyyy-mm-dd"
+			});
 
 			//tampilkan laporan
 			$("#tampilkan").click(function(){

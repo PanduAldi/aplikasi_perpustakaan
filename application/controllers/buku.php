@@ -85,6 +85,7 @@ class Buku extends CI_Controller {
 							 'pengarang' => $this->input->post('pengarang'),
 							 'deskripsi' => $this->input->post('deskripsi'),
 							 'cover' => $cover,
+							 'tgl_masuk' => date('Y-m-d'),
 							 'status' => 'y'
 						   );
 
