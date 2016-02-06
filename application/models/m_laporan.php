@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_laporan extends CI_Model {
 
-	// Get report anggota
+	// Get report peminjaman
 	public function get_peminjaman($tgl1, $tgl2)
 	{
 		$this->db->where('tgl_pinjam >=', $tgl1);
@@ -22,11 +22,21 @@ class M_laporan extends CI_Model {
 		return $this->db->get();
 	}
 
+	//get report anggota
 	public function get_anggota($tgl1, $tgl2)
 	{
 		$this->db->where('tgl_daftar >=', $tgl1);
 		$this->db->where('tgl_daftar <=', $tgl2);
 		return $this->db->get('t_anggota');
+	}
+
+	//get report buku
+	public function get_buku($tgl1, $tgl2)
+	{
+		$this->db->where('tgl_masuk >=', $tgl1);
+		$this->db->where('tgl_masuk <=', $tgl2);
+
+		return $this->db->get('t_buku');
 	}
 
 	// tampil detail anggota

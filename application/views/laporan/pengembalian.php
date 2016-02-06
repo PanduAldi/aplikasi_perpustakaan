@@ -3,9 +3,13 @@
 	<script>
 		$(function(){
 
-			//datepicker
-			$("#tgl1").datepicker();
-			$("#tgl2").datepicker();
+			//tgl
+			$("#tgl1").datepicker({
+				format : "yyyy-mm-dd"
+			});
+			$('#tgl2').datepicker({
+				format : "yyyy-mm-dd"
+			});
 
 			//tampilkan laporan
 			$("#tampilkan").click(function(){
@@ -46,7 +50,7 @@
 			<div class="col-lg-6">
 				<div class="row">
 					<div class="col-md-5">
-						<input type="text" id='tgl1' class="form-control" placeholder = 'Input tanggal 1'>
+						<input type="text" id="tgl1" class="form-control" placeholder = 'Input tanggal 1'>
 					</div>
 					<div class="col-md-5">
 						<input type="text" id="tgl2" class="form-control" placeholder="Input tgl 2">

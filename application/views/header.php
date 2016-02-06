@@ -26,7 +26,7 @@
 				$masteradmin = array('buku', 'anggota', 'petugas');
 				$masterpetugas = array('buku', 'anggota');
 				$transaksi = array('peminjaman','pengembalian');
-				$laporan = array('anggota','peminjaman','pengembalian');
+				$laporan = array('anggota', 'buku','peminjaman','pengembalian');
 				if ($this->session->userdata('level')== '1') {
 					?>
 						<li class="dropdown">
